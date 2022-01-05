@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		25CE25AF3EAAD687FC4B367B /* RxMoyaTool.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = RxMoyaTool.podspec; path = ../RxMoyaTool.podspec; sourceTree = "<group>"; };
+		25CE25AF3EAAD687FC4B367B /* RxMoyaTool.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RxMoyaTool.podspec; path = ../RxMoyaTool.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4EB9C1D420A484177BCB8587 /* Pods-RxMoyaTool_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMoyaTool_Example.release.xcconfig"; path = "Target Support Files/Pods-RxMoyaTool_Example/Pods-RxMoyaTool_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RxMoyaTool_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMoyaTool_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,12 +41,12 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		62B96AEE4A3601AF9A07E3B4 /* Pods-RxMoyaTool_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMoyaTool_Tests.release.xcconfig"; path = "Target Support Files/Pods-RxMoyaTool_Tests/Pods-RxMoyaTool_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		7629797CB1C8E2859AD7A664 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		7629797CB1C8E2859AD7A664 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8EB0B48D9C35102214881E22 /* Pods-RxMoyaTool_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMoyaTool_Example.debug.xcconfig"; path = "Target Support Files/Pods-RxMoyaTool_Example/Pods-RxMoyaTool_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		917D668965F6F554BEB4A899 /* Pods_RxMoyaTool_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMoyaTool_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3956D0910CEE14ABFEFA0D /* Pods_RxMoyaTool_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMoyaTool_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B1FC18F7996A14F3481EB4 /* Pods-RxMoyaTool_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMoyaTool_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RxMoyaTool_Tests/Pods-RxMoyaTool_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		D6F42978035330A9F61C3B51 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D6F42978035330A9F61C3B51 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +156,6 @@
 				C9B1FC18F7996A14F3481EB4 /* Pods-RxMoyaTool_Tests.debug.xcconfig */,
 				62B96AEE4A3601AF9A07E3B4 /* Pods-RxMoyaTool_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +206,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MT;
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
@@ -227,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

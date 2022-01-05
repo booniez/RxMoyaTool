@@ -1,0 +1,6 @@
+framework module RxMoyaTool {
+  umbrella header "RxMoyaTool-umbrella.h"
+
+  export *
+  module * { export * }
+}

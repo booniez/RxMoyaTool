@@ -1,0 +1,16 @@
+PODS:
+  - RxMoyaTool (0.1.0)
+
+DEPENDENCIES:
+  - RxMoyaTool (from `../`)
+
+EXTERNAL SOURCES:
+  RxMoyaTool:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RxMoyaTool: ecfe01a6d0bdef30d018923acc2088fbb5b22695
+
+PODFILE CHECKSUM: e50a6b16edcd89920b6fa18a931abe3a3934173a
+
+COCOAPODS: 1.11.2

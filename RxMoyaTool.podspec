@@ -17,18 +17,19 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+#  s.description      = <<-DESC
+#TODO: Add long description of the pod here.
+#                       DESC
 
-  s.homepage         = 'https://github.com/kled/RxMoyaTool'
+  s.homepage         = 'https://github.com/Kled-Lab/RxMoyaTool'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'kled' => 'xxxx.xxx@xxx.com' }
-  s.source           = { :git => 'https://github.com/kled/RxMoyaTool.git', :tag => s.version.to_s }
+  s.author           = { 'kled' => 'kledplus@gmail.com' }
+  s.source           = { :git => 'https://github.com/Kled-Lab/RxMoyaTool.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+  s.swift_versions = '5.0'
 
   s.source_files = 'RxMoyaTool/Classes/**/*'
   
