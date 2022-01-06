@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import RxMoyaTool
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        MTMoyaConfig.shared.openLogger = true
+        MTMoyaConfig.shared.host = "https://news-at.zhihu.com"
         return true
     }
 
@@ -44,3 +46,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+extension AppDelegate: MTMoyaConf {
+    
+    struct dasdfNetModel: Decodable {
+        let ds: Int
+    }
+    
+    public func baseModel() -> Decodable {
+        return dasdfNetModel.init(ds: 13)
+    }
+    
+    
+}

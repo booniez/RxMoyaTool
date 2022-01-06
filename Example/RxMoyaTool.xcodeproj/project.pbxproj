@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A4F6A7A6CC9B8C0B24B27CEB /* Pods_RxMoyaTool_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3956D0910CEE14ABFEFA0D /* Pods_RxMoyaTool_Example.framework */; };
 		DF9CF4C21530C5846030C180 /* Pods_RxMoyaTool_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917D668965F6F554BEB4A899 /* Pods_RxMoyaTool_Tests.framework */; };
+		FAEDE9CC2786D69C00252A39 /* ExampleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDE9CB2786D69C00252A39 /* ExampleAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9E3956D0910CEE14ABFEFA0D /* Pods_RxMoyaTool_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMoyaTool_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B1FC18F7996A14F3481EB4 /* Pods-RxMoyaTool_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMoyaTool_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RxMoyaTool_Tests/Pods-RxMoyaTool_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D6F42978035330A9F61C3B51 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		FAEDE9CB2786D69C00252A39 /* ExampleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		607FACD21AFB9204008FA782 /* Example for RxMoyaTool */ = {
 			isa = PBXGroup;
 			children = (
+				FAEDE9CB2786D69C00252A39 /* ExampleAPI.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -270,11 +273,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RxMoyaTool_Example/Pods-RxMoyaTool_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxMoyaTool/RxMoyaTool.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxMoyaTool.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -333,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				FAEDE9CC2786D69C00252A39 /* ExampleAPI.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

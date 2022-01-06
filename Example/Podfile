@@ -4,6 +4,10 @@ platform :ios, '9.0'
 
 target 'RxMoyaTool_Example' do
   pod 'RxMoyaTool', :path => '../'
+  
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Moya/RxSwift'
 
   target 'RxMoyaTool_Tests' do
     inherit! :search_paths
