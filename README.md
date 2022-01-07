@@ -35,7 +35,7 @@ MTMoyaConfig.shared.startWith(self)
 step2: 定义自己的 ``Provider``, 如果有多个模块，可以定义多个 ``Provider``, 自行根据业务进行拆分即可。
 
 step3: 在需要的地方定义返回模型(遵守 ``Decodable``协议)，选择 ``Provider`` 中的 case 发起网络请求，在 ``Closures`` 中即可拿到所需要的模型对象。
-如果您的数据结构符合 ``{status: 200, message:"",data: [xxx,xxx]}`` 这种结构，那么可以在 ``MTMoyaConfProtocol`` 的方法中处理*状态码*和*提示信息*，并且设置 ``keyPath`` (默认是 ``data``)，之后您只需要关心 data 里面的对象即可（）。
+如果您的数据结构符合 ``{status: 200, message:"",data: [xxx,xxx]}`` 这种结构，那么可以在 ``MTMoyaConfProtocol`` 的方法中处理 *状态码* 和 *提示信息* ，并且设置 ``keyPath`` (默认是 ``data``)，之后您只需要关心 data 里面的对象即可。
 
 ## 许可证
 
