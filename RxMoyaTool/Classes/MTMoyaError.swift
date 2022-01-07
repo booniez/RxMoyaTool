@@ -9,7 +9,7 @@ public enum MTMoyaError {
     case timeOut
     case serverDataError
     case dataMapError(String)
-    case server(Int, String)
+    case server(String, String)
     case tokenInvalid
     case refreshTokenError
 }

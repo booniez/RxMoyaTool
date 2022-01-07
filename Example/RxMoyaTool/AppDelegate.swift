@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        MTMoyaConfig.shared.openLogger = true
-        MTMoyaConfig.shared.host = "https://news-at.zhihu.com"
+        MTMoyaConfig.shared.startWith(self)        
         return true
     }
 
@@ -46,15 +45,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+struct BaseNetModel: Decodable {
+    let message: String?
+    let status: Int
+    var isSucceed: Bool {
+        return 200 == status
+    }
+}
 
-extension AppDelegate: MTMoyaConf {
-    
-    struct dasdfNetModel: Decodable {
-        let ds: Int
+extension AppDelegate: MTMoyaConfProtocol {
+    func host() -> String {
+        return "https://news-at.zhihu.com"
     }
     
-    public func baseModel() -> Decodable {
-        return dasdfNetModel.init(ds: 13)
+    func baseModelIsSucceed(_ data: Data) -> Bool {
+        let baseModel = try? JSONDecoder.init().decode(BaseNetModel.self, from: data)
+        return baseModel?.isSucceed ?? false
+    }
+    
+    func baseModelStatusCode(_ data: Data) -> String {
+        let baseModel = try? JSONDecoder.init().decode(BaseNetModel.self, from: data)
+        return String(baseModel?.status ?? 0)
+    }
+    
+    func baseModelMessage(_ data: Data) -> String {
+        let baseModel = try? JSONDecoder.init().decode(BaseNetModel.self, from: data)
+        return baseModel?.message ?? ""
+    }
+    
+    func openLogger() -> Bool {
+        return true
     }
     
     

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()                
         
         struct LatestNewsModel: Codable {
             let date: String?
@@ -37,13 +37,10 @@ class ViewController: UIViewController {
                     print(result.stories?.first?.hint ?? "")
                 }, onError: { error in
                     if let error = error as? MTMoyaError {
-                        print(error.errorMessage)
+                        fatalError(error.errorMessage)
                     }
                 }).disposed(by: disposeBag)
-        
-        
-        
-        
+                        
     }
 
     override func didReceiveMemoryWarning() {

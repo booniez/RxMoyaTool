@@ -9,14 +9,12 @@
 import Moya
 import RxMoyaTool
 
-let exampleAPIProvider = MTMoyaProvider<ExampleAPI>()//NetworkProvider<ExampleAPI>()
+let exampleAPIProvider = MTMoyaProvider<ExampleAPI>()
 
 
 enum ExampleAPI {
     //知乎最新日报列表
     case latestNews
-    
-    case check
 }
 
 // MARK: - TargetType Protocol Implementation
@@ -24,9 +22,7 @@ extension ExampleAPI: TargetType {
     var path: String {
         switch self {
         case .latestNews:
-            return "/api/4/news/latest"
-        case .check:
-            return "/api/sharecar/client/mp/award/api/signIn/00b0b10278d84c0f81ee448873ef4be2"
+            return "/api/4/news/latest"        
         }
     }
     
@@ -58,7 +54,7 @@ extension ExampleAPI: TargetType {
     var baseURL: URL {
         switch self {
         default:
-            guard let url = URL.init(string: MTMoyaConfig.shared.host) else {
+            guard let url = URL.init(string: MTMoyaConfig.shared.mtMoyaConf?.host() ?? "") else {
                 fatalError("host convert failed")
             }
             return url

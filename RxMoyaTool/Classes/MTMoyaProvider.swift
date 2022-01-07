@@ -42,7 +42,7 @@ extension MTMoyaProvider {
         urlString = urlString.replacingOccurrences(of: "%3F", with: "?")
         return Endpoint(
             url: urlString,
-            sampleResponseClosure: { .networkResponse(MTMoyaConfig.shared.networkResponseCode, target.sampleData) },
+            sampleResponseClosure: { .networkResponse(MTMoyaConfig.shared.mtMoyaConf?.networkResponseCode?() ?? 200, target.sampleData) },
             method: target.method,
             task: target.task,
             httpHeaderFields: target.headers
@@ -51,10 +51,10 @@ extension MTMoyaProvider {
 
     public static func sessionManager() -> Manager {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = MTMoyaConfig.shared.timeoutIntervalForRequest
-        configuration.timeoutIntervalForResource = MTMoyaConfig.shared.timeoutIntervalForResource
+        configuration.timeoutIntervalForRequest = MTMoyaConfig.shared.mtMoyaConf?.timeoutIntervalForRequest?() ?? 20.0
+        configuration.timeoutIntervalForResource = MTMoyaConfig.shared.mtMoyaConf?.timeoutIntervalForResource?() ?? 20.0
         let serverTrustPolicies: [String: ServerTrustPolicy] = [
-            MTMoyaConfig.shared.host: .pinCertificates(certificates: ServerTrustPolicy.certificates(), validateCertificateChain:true, validateHost:false)
+            MTMoyaConfig.shared.mtMoyaConf?.host() ?? "": .pinCertificates(certificates: ServerTrustPolicy.certificates(), validateCertificateChain:true, validateHost:false)
         ]
         
         let sessionDelegate = SessionDelegate()
@@ -87,9 +87,9 @@ extension MTMoyaProvider {
 public extension ObservableType where E == Response {
 
     //data字段为空（或者值没有意义）时，使用 MapVoid()
-    func mapVoid() -> Observable<Void> {
-        return mapToModel(NetModel.self, keyPath: "").map { _ in Void() }
-    }
+//    func mapVoid() -> Observable<Void> {
+//        return mapToModel(NetModel.self, keyPath: "").map { _ in Void() }
+//    }
     
     func mapToModel<T: Decodable>(_: T.Type, decoder: JSONDecoder = JSONDecoder.init(), keyPath: String = "data") -> Observable<T> {
         return map({ (response) -> T in
@@ -97,7 +97,7 @@ public extension ObservableType where E == Response {
             return object
         }).catchError { (err) -> Observable<T> in
             return Observable<T>.create({ (observe) -> Disposable in
-                var finalError = MTMoyaError.server(0, "")
+                var finalError = MTMoyaError.server("0", "")
                 if let error = err as? MoyaError, let reponse = error.response {
                     if reponse.statusCode == NSURLErrorTimedOut {
                         finalError = MTMoyaError.timeOut
@@ -120,7 +120,7 @@ public extension ObservableType where E == Response {
             return object
         }).catchError { (err) -> Observable<[T]> in
             return Observable<[T]>.create({ (observe) -> Disposable in
-                var finalError = MTMoyaError.server(0, "")
+                var finalError = MTMoyaError.server("0", "")
                 if let error = err as? MoyaError, let reponse = error.response {
                     if reponse.statusCode == NSURLErrorTimedOut {
                         finalError = MTMoyaError.timeOut
@@ -137,17 +137,12 @@ public extension ObservableType where E == Response {
         return map({ (response) -> [String: Any] in
             let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments)
             if let dict = json as? [String: Any] {
-                let status = dict["status"] as? Int
-                if status != nil, status == 200 {
-                    return dict
-                }
-                let message = dict["message"] as? String
-                throw MTMoyaError.server(status ?? 0, message ?? "未知错误")
+                return dict
             }
             throw MTMoyaError.serverDataError
         }).catchError { (err) -> Observable<[String: Any]> in
             return Observable<[String: Any]>.create({ (observe) -> Disposable in
-                var finalError = MTMoyaError.server(0, "")
+                var finalError = MTMoyaError.server("0", "")
                 if let error = err as? MoyaError, let reponse = error.response {
                     if reponse.statusCode == NSURLErrorTimedOut {
                         finalError = MTMoyaError.timeOut
